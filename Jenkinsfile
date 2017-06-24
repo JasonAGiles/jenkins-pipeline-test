@@ -6,6 +6,7 @@ pipeline {
   stages {
     stage ('Output Environment') {
       steps {
+        echo 'Hello World'
         script {
           sh "printenv"
         }
