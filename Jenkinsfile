@@ -7,6 +7,7 @@ pipeline {
     stage ('Output Environment') {
       steps {
         echo 'Hello World from Docker Container on ECS'
+        echo 'Bump the file'
         script {
           sh "printenv"
         }
