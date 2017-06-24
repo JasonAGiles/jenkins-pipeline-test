@@ -4,7 +4,7 @@ pipeline {
   agent any
 
   stages {
-    stage ('Output Environment ') {
+    stage ('Output Environment') {
       steps {
         script {
           sh "printenv"
