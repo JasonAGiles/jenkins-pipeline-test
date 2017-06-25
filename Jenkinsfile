@@ -4,18 +4,36 @@ pipeline {
   agent { label 'ecs-dind-slave' }
 
   stages {
-    stage ('Output Environment') {
+    stage ('Print Messages') {
       steps {
         echo 'Hello World from Docker Container on ECS'
-        echo 'Bump the file'
+      }
+    }
+
+    stage ('Docker Version') {
+      steps {
         script {
-          sh "printenv"
-          sh """
-            docker -v
-            docker info
-          """
+          sh "docker -v"
         }
       }
     }
+
+    stage ('Docker Info') {
+      steps {
+        script {
+          sh "docker info"
+        }
+      }
+    }
+
+    stage ('Docker Hello World') {
+      steps {
+        script {
+          sh "docker run hello-world"
+        }
+      }
+    }
+
+
   }
 }
