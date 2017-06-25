@@ -12,7 +12,7 @@ pipeline {
           sh "printenv"
           sh """
             docker -v
-            docker run hello-world
+            docker info
           """
         }
       }
