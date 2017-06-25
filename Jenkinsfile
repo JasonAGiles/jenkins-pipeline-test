@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 pipeline {
-  agent { label 'ecs-jnlp-slave' }
+  agent { label 'ecs-dind-slave' }
 
   stages {
     stage ('Output Environment') {
@@ -10,6 +10,7 @@ pipeline {
         echo 'Bump the file'
         script {
           sh "printenv"
+          docker -v
         }
       }
     }
