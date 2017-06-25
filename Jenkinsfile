@@ -10,7 +10,10 @@ pipeline {
         echo 'Bump the file'
         script {
           sh "printenv"
-          docker -v
+          sh """
+            docker -v
+            docker run hello-world
+          """
         }
       }
     }
