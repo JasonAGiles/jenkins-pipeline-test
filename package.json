@@ -1,0 +1,22 @@
+{
+  "name": "jenkins-pipeline-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./node_modules/lab/bin/lab -c",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com-JasonAGiles:JasonAGiles/jenkins-pipeline-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^16.4.3"
+  },
+  "devDependencies": {
+    "lab": "^14.1.0"
+  }
+}

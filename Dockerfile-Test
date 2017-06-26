@@ -1,0 +1,7 @@
+FROM jenkins-pipeline-test:latest
+
+RUN npm update
+
+COPY test ./test
+
+CMD ["test"]

@@ -4,33 +4,37 @@ pipeline {
   agent { label 'ecs-dind-slave' }
 
   stages {
-    stage ('Print Messages') {
+    stage ('Build App Image') {
       steps {
-        echo 'Hello World from Docker Container on ECS'
+        sh """
+          docker build -t jenkins-pipeline-test:latest .
+        """
       }
     }
 
-    stage ('Docker Version') {
+    stage ('Build Test Image') {
       steps {
         script {
-          sh "docker -v"
+          sh """
+            docker build -t jenkins-pipeline-test:test -f Dockerfile-Test .
+          """
         }
       }
     }
 
-    stage ('Docker Info') {
+    stage ('Test') {
       steps {
         script {
-          sh "docker info"
+          sh """
+            docker run --rm jenkins-pipeline-test:test
+          """
         }
       }
     }
 
-    stage ('Docker Hello World') {
+    stage ('Push App Image') {
       steps {
-        script {
-          sh "docker run hello-world"
-        }
+        echo "This is where the image would be pushed.  Need IAM role to perform that"
       }
     }
 
