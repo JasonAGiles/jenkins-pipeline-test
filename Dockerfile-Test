@@ -1,6 +1,6 @@
 FROM jenkins-pipeline-test:latest
 
-RUN npm update
+RUN npm update --quiet
 
 COPY test ./test
 
