@@ -12,7 +12,7 @@ lab.experiment('Hello World', () => {
             url: '/'
         }).then((response) => {
             Lab.expect(response).to.be.an.object();
-            Lab.expect(response.result).to.equal('Hello, world!');
+            Lab.expect(response.result).to.not.equal('Hello, world!');
         });
     });
 });
